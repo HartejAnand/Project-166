@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title>Circut model</title>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+        <script src="https://raw.githack.com/whitehatjr/ar-gesture-handler/main/index.js"></script>
+    </head>
+
+    <body style="margin : 0px; overflow: hidden;">
+        <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;trakingMethod:best"
+            vr-mode-ui="enabled: false;" gesture-detector >
+
+            <a-assets>
+                <a-asset-item id="light" src="./Light.glb"></a-asset-item>
+            </a-assets>
+            <a-assets>
+                <a-asset-item id="button" src="./Button.glb"></a-asset-item>
+            </a-assets>
+            <a-assets>
+                <a-asset-item id="battrey" src="./Battery.glb"></a-asset-item>
+            </a-assets>
+
+
+            <a-marker preset="hiro">
+                <a-entity id="model" position="-0.5 0.5 0" gltf-model="#light" rotation="0 -90 90" scale="0.5 0.5 0.5" 
+                    gesture-handler 
+                    animation-mixer>
+                </a-entity>
+                <a-entity id="model" position="0 -0.5 0" gltf-model="#button" rotation="0 -90 90" scale="0.5 0.5 0.5" 
+                    gesture-handler 
+                    animation-mixer>
+                </a-entity>
+                <a-entity id="model" position="0.5 0.50 0" gltf-model="#battery" rotation="0 -90 90" scale="0.5 0.5 0.5" 
+                    gesture-handler 
+                    animation-mixer>
+                </a-entity>
+            </a-marker>
+        </a-scene>
+    </body>
+</html>
